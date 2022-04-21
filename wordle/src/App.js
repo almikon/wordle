@@ -2,7 +2,7 @@ import './App.css';
 import Board from './components/Board';
 import Keyboard from './components/Keyboard';
 import {createContext, useState} from 'react';
-import {BoardDefault} from './components/Words'
+import {BoardDefault, generateWordSet} from './components/Words'
 
 export const AppContext = createContext();
 
@@ -11,6 +11,11 @@ function App() {
   const [board, setBoard] = useState(BoardDefault);
   const [currAtempt, setCurrAtempt] = useState({attempt: 0, letterPos: 0})
   
+  useEffect(()=>
+  {
+
+  }, [])
+
   const onSelectLetter = (keyVal)=>{
     
     if (currAtempt.letterPos > 4) return;

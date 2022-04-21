@@ -1,21 +1,21 @@
-import wordBank from './wordle-bank.txt';
+import wordBank from '../wordle-bank.txt';
 export const BoardDefault = [
-    ["T", "", "", "", "", ""],
-    ["", "E", "", "", "", ""],
-    ["", "", "S", "", "", ""],
-    ["", "", "", "T", "", ""],
-    ["", "", "", "", "!", ""],
-    ["", "", "", "", "", "!"],
+    ["", "", "", "", "", ""],
+    ["", "", "", "", "", ""],
+    ["", "", "", "", "", ""],
+    ["", "", "", "", "", ""],
+    ["", "", "", "", "", ""],
+    ["", "", "", "", "", ""],
 ]
 
-export const generateWordSet = async () =>{
-     let wordSet;
-     await fetch(wordBank)
-     .then((response) => response.text())
-     .then((result) => {
-         const wordArray = result.split('\n');
-         wordSet = new Set(wordArray);
-     }); 
-    
-     return wordSet;
+export const generateWordSet = async () => {
+    let wordSet;
+    await fetch(wordBank)
+        .then((response) => response.text())
+        .then((result) => {
+            const wordArray = result.split('\n');
+            wordSet = new Set(wordArray);
+        });
+
+    return wordSet;
 }

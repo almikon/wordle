@@ -1,17 +1,20 @@
-import React, {useContext} from 'react'
-import {AppContext} from '../App'
+import React, { useContext } from 'react'
+import { AppContext } from '../App'
 
-function Key({keyVal}, bigKey) {
-    const {onDelete, onEnter, onSelectLetter} = useContext(AppContext);
-    if(keyVal === 'ENTER') {
+function Key({ keyVal, bigKey }) {
+  const { onDelete, onEnter, onSelectLetter } = useContext(AppContext);
+
+  const sellectLetter = () => {
+    if (keyVal === 'ENTER') {
       onEnter();
-    } else if (keyVal === 'DEL'){
+    } else if (keyVal === 'DEL') {
       onDelete();
-    }else{    
+    } else {
       onSelectLetter(keyVal);
+    }
   }
   return (
-    <div className="key" id={bigKey && "big"} onClick={selectLetter}>{keyVal}</div>
+    <div className="key" id={bigKey && "big"} onClick={sellectLetter}>{keyVal}</div>
   )
 }
 

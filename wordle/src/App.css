@@ -65,9 +65,7 @@ nav h1 {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-#correct {
-  background-color: #528d4e;
-}
+
 
 #almost {
   background-color: #b49f39;
@@ -75,6 +73,10 @@ nav h1 {
 
 #error {
   background-color: #3a393c;
+}
+
+#correct {
+  background-color: #528d4e;
 }
 
 .keyboard {

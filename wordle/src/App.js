@@ -13,6 +13,8 @@ function App() {
   const [currAttempt, setCurrAttempt] = useState({ attempt: 0, letterPos: 0 });
   const [wordSet, setWordSet] = useState(new Set());
   const [disabledLetters, setDisabledLetters] = useState([]);
+  const [almostLetters, setAlmostLetters] = useState([]);
+  const [correctLetters, setCorrectLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
     gameOver: false,
     guessedWord: false,
@@ -65,7 +67,7 @@ function App() {
       alert("Word not found!")
     }
 
-    if (currWord === correctWord) {
+    if (currWord.toLowerCase() === correctWord.toLowerCase()) {
       //game ended. you win!
       setGameOver({ gameOver: true, guessedWord: true })
     }
@@ -79,7 +81,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <h1>Ru Wordle</h1>
+        <h1>Wordle Clone</h1>
       </nav>
       <AppContext.Provider value={{
         board,
@@ -92,6 +94,10 @@ function App() {
         correctWord,
         setDisabledLetters,
         disabledLetters,
+        almostLetters,
+        setAlmostLetters,
+        correctLetters,
+        setCorrectLetters,
         gameOver,
         setGameOver
       }}>

@@ -14,10 +14,12 @@ export const generateWordSet = async () => {
     await fetch(wordBank)
         .then((response) => response.text())
         .then((result) => {
-            const wordArray = result.split('\n');
+            const wordArray = result.split('\r\n');
+            console.log(typeof (wordArray));
+            console.log(wordArray);
             todaysWord = wordArray[Math.floor(Math.random() * wordArray.length)];
             wordSet = new Set(wordArray);
         });
 
-    return {wordSet, todaysWord};
+    return { wordSet, todaysWord };
 }

@@ -14,17 +14,17 @@ function App() {
   const [wordSet, setWordSet] = useState(new Set());
   const [disabledLetters, setDisabledLetters] = useState([]);
   const [gameOver, setGameOver] = useState({
-    gameOver:false,
+    gameOver: false,
     guessedWord: false,
   });
   const [correctWord, setcorrectWord] = useState("");
 
   useEffect(() => {
-    generateWordSet().then((words) =>{
+    generateWordSet().then((words) => {
       setWordSet(words.wordSet);
       setcorrectWord(words.todaysWord);
     });
-}, []);
+  }, []);
 
 
   const onSelectLetter = (keyVal) => {
@@ -51,26 +51,26 @@ function App() {
 
     if (currAttempt.letterPos !== 5) return;
 
-    let currWord = ""
+    let currWord = "";
     for (let i = 0; i < 5; i++) {
-      currWord += board[currAttempt.attempt][i]; 
+      currWord += board[currAttempt.attempt][i];
     }
 
-    if(wordSet.has(currWord.toLowerCase())){
+    if (wordSet.has(currWord.toLowerCase())) {
 
-      
-    setCurrAttempt({ attempt: currAttempt.attempt + 1, letterPos: 0 });
+
+      setCurrAttempt({ attempt: currAttempt.attempt + 1, letterPos: 0 });
     } else {
       //word not found;
       alert("Word not found!")
     }
 
-    if (currWord === correctWord){
+    if (currWord === correctWord) {
       //game ended. you win!
-      setGameOver({gameOver:true, guessedWord:true})
+      setGameOver({ gameOver: true, guessedWord: true })
     }
-    if(currAttempt.attempt===5){
-      setGameOver({gameOver:true,guessedWord:false});
+    if (currAttempt.attempt === 5) {
+      setGameOver({ gameOver: true, guessedWord: false });
     }
 
   }
@@ -81,24 +81,24 @@ function App() {
       <nav>
         <h1>Ru Wordle</h1>
       </nav>
-      <AppContext.Provider value={{ 
-        board, 
-        setBoard, 
-        currAttempt, 
-        setCurrAttempt, 
-        onDelete, 
-        onEnter, 
-        onSelectLetter, 
+      <AppContext.Provider value={{
+        board,
+        setBoard,
+        currAttempt,
+        setCurrAttempt,
+        onDelete,
+        onEnter,
+        onSelectLetter,
         correctWord,
         setDisabledLetters,
         disabledLetters,
         gameOver,
         setGameOver
-       }}>
+      }}>
 
         <div className="game">
           <Board />
-          {gameOver.gameOver?<GameOver/> : <Keyboard />}
+          {gameOver.gameOver ? <GameOver /> : <Keyboard />}
         </div>
       </AppContext.Provider>
     </div>

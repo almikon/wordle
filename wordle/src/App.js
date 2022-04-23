@@ -70,8 +70,7 @@ function App() {
     if (currWord.toLowerCase() === correctWord.toLowerCase()) {
       //game ended. you win!
       setGameOver({ gameOver: true, guessedWord: true })
-    }
-    if (currAttempt.attempt === 5) {
+    } else if (currAttempt.attempt === 5) {
       setGameOver({ gameOver: true, guessedWord: false });
     }
 

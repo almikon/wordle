@@ -131,3 +131,7 @@ nav h1 {
 #disabled {
   background-color: #3a393c;
 }
+
+a:visited {
+  color: white;
+}

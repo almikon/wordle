@@ -80,7 +80,7 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <h1>Wordle Clone</h1>
+        <h2>Wordle Clone</h2>
       </nav>
       <AppContext.Provider value={{
         board,
